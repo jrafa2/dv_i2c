@@ -1,0 +1,9 @@
+*.log
+.cadence
+xcelium.d/
+xrun.*
+dump.vcd
+waves.shm/
+cov_work/
+.simvision/
+imc*
