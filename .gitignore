@@ -6,4 +6,7 @@ dump.vcd
 waves.shm/
 cov_work/
 .simvision/
+vmgr_db/
 imc*
+.symbol*
+*.err

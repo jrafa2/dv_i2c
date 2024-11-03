@@ -1,0 +1,84 @@
+//https://www.accellera.org/images/downloads/standards/systemrdl/SystemRDL_2.0_Jan2018.pdf
+//https://github.com/SystemRDL/PeakRDL-uvm/tree/main
+addrmap reg_map{
+	name = "Chip registers";
+	desc = "Register description in SystemRDL format";
+	reg fir_coef_0 {
+		name="FIR_COEF_0";
+		regwidth = 8;
+		field{
+			hw = rw;
+			sw = rw;
+		} coef0[7:0] = 8'b0000_0001;
+	};
+	reg fir_coef_1 {
+		name="FIR_COEF_1";
+		regwidth = 8;
+		field{
+			hw = rw;
+			sw = rw;
+		} coef1[7:0] = 8'b0000_0000;
+	};
+	reg fir_coef_2 {
+		name="FIR_COEF_2";
+		regwidth = 8;
+		field{
+			hw = rw;
+			sw = rw;
+		} coef2[7:0] = 8'b0000_0000;
+	};
+	
+	reg fir_div {
+		name="FIR_DIV";
+		regwidth = 8;
+		field{
+			hw = rw;
+			sw = rw;
+		} div[7:0] = 8'b0000_0000;
+	};
+	
+	reg cic_coef {
+		name="CIC_COEF";
+		regwidth = 8;
+		field{
+			hw = rw;
+			sw = rw;
+		} dr[1:0] = 8'b0000_0001;
+	};
+	
+	reg chip_id {
+		name="CHIP_ID";
+		regwidth = 8;
+		field{
+			hw = r;
+			sw = r;
+		} ID[7:0] = 8'hA5;
+	};
+	
+	reg control {
+		name="CONTROL";
+		regwidth = 8;
+		field{
+			//hw = w;
+			sw = w;
+		} E[0:0] = 8'h0;
+	};
+	
+	reg output {
+		name="OUTPUT";
+		regwidth = 8;
+		field{
+			hw = r;
+			sw = r;
+		} output[7:0] = 8'b0000_0000;
+	};
+	
+	fir_coef_0 fir_coef_0_reg @0x00;
+	fir_coef_1 fir_coef_1_reg @0x01;
+	fir_coef_2 fir_coef_2_reg @0x02;
+	fir_div fir_div_reg @0x03;
+	cic_coef cic_coef_reg @0x04;
+	chip_id chip_id_reg @0x05;
+	control control_reg @0x06;
+	output output_reg @0x07;
+};
